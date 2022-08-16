@@ -1,4 +1,4 @@
-package head_first_java.src.main.java.know_your_variables.code_magnets;
+package head_first_java.src.main.know_your_variables.code_magnets;
 
 class TestArrays {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package head_first_java.src.main.java.know_your_variables.be_the_compiler;
+package head_first_java.src.main.know_your_variables.be_the_compiler;
 
 class Books {
     String title;
