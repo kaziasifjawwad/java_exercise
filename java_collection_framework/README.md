@@ -22,20 +22,20 @@ Let us know about collection interface.<br>
 object or class.`
 
 
-|             method             | Description                                                                                                                                       |
-|:------------------------------:|---------------------------------------------------------------------------------------------------------------------------------------------------|
-|           `add(E e)`           | It will add an element.<br/>It can be object of any class                                                                                         |
-|   `addAll(Collection<E> c)`    | We can pass another collection object contains.                                                                                                   |
-|       `remove(Object c)`       | It will remove the object from the collection.<br/>It will return boolean result. If the object is removed, <br/>it will return true, else false. |
-|  `removeAll(Collection<E> c`   | It will remove all the element of the collection `c`.                                                                                             |
-|  `retainAll(Collection<E> c`   | In contrast to `removeAll(Collection<E> c)`. That means, remove all the objects except the objects of `c`.                                        |
-|           `clear()`            | It will remove all the elements of the collection. The collection will be empty.                                                                  |
-|          `isEmpty()`           | It will check if the collection is empty or not.                                                                                                  |
-|      `contains(object o)`      | It will check of the object `c` is present or not in the collection.                                                                              |
-| `containsAll(Collection<E> c)` | It will check if all the element of collection `c` is present or not in the collection.                                                           |
-|            `size()`            | Returns the size of the collection.                                                                                                               |
-|          `iterator()`          | It returns an interface of iterator.                                                                                                              |
-|          `toArray()`           | It will return an array contains all the element of the collection.                                                                               |
+|             method             | Description                                                                                                                         |
+|:------------------------------:|-------------------------------------------------------------------------------------------------------------------------------------|
+|           `add(E e)`           | It will add an element. It can be object of any class                                                                               |
+|   `addAll(Collection<E> c)`    | We can pass another collection object. It will add all the element of the object `c`                                                |
+|       `remove(Object c)`       | It will remove the object from the collection and return boolean result. If the object is removed, it will return true, else false. |
+|  `removeAll(Collection<E> c`   | It will remove all the element of the collection `c`.                                                                               |
+|  `retainAll(Collection<E> c`   | In contrast to `removeAll(Collection<E> c)`. That means, remove all the objects except the objects of `c`.                          |
+|           `clear()`            | It will remove all the elements of the collection. The collection will be empty.                                                    |
+|          `isEmpty()`           | It will check if the collection is empty or not.                                                                                    |
+|      `contains(object o)`      | It will check if the object `c` is present or not in the collection.                                                                |
+| `containsAll(Collection<E> c)` | It will check if all the element of collection `c` is present in the collection.                                                    |
+|            `size()`            | Returns the size of the collection.                                                                                                 |
+|          `iterator()`          | It returns an interface of iterator.                                                                                                |
+|          `toArray()`           | It will return an array contains all the element of the collection.                                                                 |
 
 
 
@@ -53,20 +53,20 @@ interface List extends Collection
 List represents ordered collection of elements, means there should be index number. It also supports duplicate 
 element.
 `List interface extends from collection interface.`  So, whatever methods are presented in collection 
-interface are also presented in list interface and some additional extra method. 
+interface are also presented in list interface and some extra method. 
 
 |                method                 | Description                                                                                                                                                                                                               |
 |:-------------------------------------:|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |         `add(int index, E e)`         | It will add an element at the index position of the collection.                                                                                                                                                           |
 | `addAll(int index, Collecttion<E> e)` | It will add a collection of elements at the index position of the collection.                                                                                                                                             |
 |          `remove(int index)`          | used to remove an element from the specified index from a List container and returns the element after removing it                                                                                                        |
-|           `get(int index)`            | used to get and element from the specified index. It does not delete or modify the object.                                                                                                                                |
+|           `get(int index)`            | used to get an element from the specified index. It does not delete or modify the object.                                                                                                                                 |
 |         `set(int index, E e)`         | It will replace the element at the specified index with new element `e`.                                                                                                                                                  |
-|      `sublist(int from, int to)`      | It will return a list of objects that are situated in between `from` and `to`.                                                                                                                                            |
+|      `sublist(int from, int to)`      | It will return a list of elements that are situated in between `from` and `to`.                                                                                                                                           |
 |          `indexOf(Object o)`          | It will return the index of the object `o` from the list. If the object is not present in the list, it will return `-1`. This will start searching from left to right side.                                               |
 |        `lastIndexOf(Object o)`        | Let's say I have duplicate element in my list. In this case there should be multiple index of the same element.This method will return the last index of this element. This will start searching from right to left side. |
 |           `listIterator()`            | `iterator()` from the collection interface allows us to access the element from left to right side. On the other hand, `listIterator()` allows us to access the element in both direction.                                |
-|       `listIterator(int index)`       | It allows us to access the element from any any index.                                                                                                                                                                    |
+|       `listIterator(int index)`       | It allows us to set the pointer to any index we want. All the other functionality of this method is same as `listIterator()`                                                                                              |
 
 
 ## <div name = "Setinterface">Set interface</div>
@@ -84,13 +84,13 @@ interface Set extends Collection
 This interface supports `FIFO` mechanism. First in first out mechanism. So, elements and objects
 are inserted in one end, and deleted in another end. 
 
-|                  method                  | Description                                                                                                                                                            |
-|:----------------------------------------:|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|                `add(E e)`                | It will add new element. It will not ask the index number because it needs to maintain fifo mechanism. So, it will add the new element at the end of the last element. |
-|                 `poll()`                 | It will remove the first object only. If the queue is empty , this method will return `null` .                                                                         |
-| `remove() throws NoSuchElementException` | Same mechanism as poll() except it will throw exception if the queue is empty.                                                                                         |
-|                 `peek()`                 | Return the first element of the queue. It will not remove or modify the element. If the queue is empty, it will return null.                                           |
-|            `element() throws`            | Same as peek except it will throw exception if the queue is empty.                                                                                                     |
+|                  method                  | Description                                                                                                                                                              |
+|:----------------------------------------:|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|                `add(E e)`                | It will add new element. It will not ask the index number because it needs to maintain `FIFO` mechanism. So, it will add the new element at the end of the last element. |
+|                 `poll()`                 | It will remove the first object only. If the queue is empty , this method will return `null` .                                                                           |
+| `remove() throws NoSuchElementException` | Same mechanism as poll() except it will throw exception if the queue is empty.                                                                                           |
+|                 `peek()`                 | Return the first element of the queue. It will not remove or modify the element. If the queue is empty, it will return null.                                             |
+|            `element() throws`            | Same as peek except it will throw exception if the queue is empty.                                                                                                       |
 
 
 ## <div name="arraylistinjava">ArrayList in java</div>
@@ -135,7 +135,7 @@ public class ListDemo {
     }
 }
 ```
-The output of this above could is :<br>
+The output of this above code is :<br>
 `[10, 45, 55, 65]`
 
 we can also define the index number before adding any element.
@@ -153,12 +153,12 @@ public class ListDemo {
     }
 }
 ```
-The output of this above could is :<br>
+The output of this above code is :<br>
 `[59, 10, 45, 55, 65]`
 
 We can see that 59 is inserted at 0th index of the al1 arraylist.
 
-We also have `addAll` method that will add all the element of another arraylist. Let's create
+We also have `addAll()` method that will add all the element of another arraylist. Let's create
 an additional arraylist.
 ```java
 import java.util.ArrayList;
@@ -182,7 +182,7 @@ public class ListDemo {
 }
 ```
 We've created an arraylist named `al2`.Then we added this arraylist in our previous arraylist
-al1 using `allAll` method.
+`al1` using `allAll()` method.
 
 The output will be look like this :
 
@@ -243,7 +243,7 @@ public class ListDemo {
     }
 }
 ```
-The iterator is only unidirectional. If we want a bidirectional iterator, we should use `ListIteraot`
+The `Iterator` is only unidirectional. If we want a bidirectional iterator, we should use `ListIteraot`
 instead.
 
 ```java
@@ -266,11 +266,12 @@ public class ListDemo {
 }
 ```
 listIterator will set the pointer to the first element if we do not pass any argument. However,
-if we pass any index, it will set the pointer to that index.
+if we pass any index, it will set the pointer to that index position.
 
 ## <div name = "linkedlistinjava">LinkedList in java</div>
 
-LinkedList have the same method as ArrayList. In this section, we will see extra two method that  linkedlist provide.
+LinkedList have the same method as ArrayList. In this section, we will see extra two method that  
+linkedlist provide.
 
 ```java
 import java.util.LinkedList;
@@ -292,8 +293,8 @@ public class ListDemo {
     }
 }
 ```
->addFirst() method will add the element at the fist position of the linkedlis,
-> on the other hand, addLast() will add the element at the last position of the linkedlist.
+>`addFirst()` method will add the element at the fist position of the linkedlis.
+> on the other hand, `addLast()` will add the element at the last position of the linked-list.
 > The output will be look like this :
 
 `Before adding 78 and 656 : [59, 10, 45, 55, 65]` <br>
