@@ -36,9 +36,9 @@ object or class.`
 ### List interface
 
 ```java
-interface List extends Collection;
+interface List extends Collection
 ```
-List represents ordered collection of elements, means there should be index. It also supports duplicate 
+List represents ordered collection of elements, means there should be index number. It also supports duplicate 
 element.
 `List interface extends from collection interface.`  So, whatever methods are presented in collection 
 interface are also presented in list interface and some additional extra method. 
@@ -55,10 +55,28 @@ interface are also presented in list interface and some additional extra method.
 |        `lastIndexOf(Object o)`        | Let's say I have duplicate element in my list. In this case there should be multiple index of the same element.This method will return the last index of this element. This will start searching from right to left side. |
 |           `listIterator()`            | `iterator()` from the collection interface allows us to access the element from left to right side. On the other hand, `listIterator()` allows us to access the element in both direction.                                |
 |       `listIterator(int index)`       | It allows us to access the element from any any index.                                                                                                                                                                    |
-|                  `-`                  | -                                                                                                                                                                                                                         |
-|                  `-`                  | -                                                                                                                                                                                                                         |
-|                  `-`                  | -                                                                                                                                                                                                                         |
-|                  `-`                  | -                                                                                                                                                                                                                         |
-|                  `-`                  | -                                                                                                                                                                                                                         |
-|                  `-`                  | -                                                                                                                                                                                                                         |
-|                  `-`                  | -                                                                                                                                                                                                                         |
+
+
+## Set interface
+The set interface does not have any additional method. It only extends the Collection interface.
+```java
+interface Set extends Collection
+```
+|              Set               |
+|:------------------------------:|
+| Unordered collection of object |
+|  Unique collection of object   |
+
+
+## Queue interface
+This interface supports `FIFO` mechanism. First in first out mechanism. So, elements and objects
+are inserted in one end, and deleted in another end. 
+
+|                  method                  | Description                                                                                                                                                            |
+|:----------------------------------------:|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|                `add(E e)`                | It will add new element. It will not ask the index number because it needs to maintain fifo mechanism. So, it will add the new element at the end of the last element. |
+|                 `poll()`                 | It will remove the first object only. If the queue is empty , this method will return `null` .                                                                         |
+| `remove() throws NoSuchElementException` | Same mechanism as poll() except it will throw exception if the queue is empty.                                                                                         |
+|                 `peek()`                 | Return the first element of the queue. It will not remove or modify the element. If the queue is empty, it will return null.                                           |
+|            `element() throws`            | Same as peek except it will throw exception if the queue is empty.                                                                                                     |
+
