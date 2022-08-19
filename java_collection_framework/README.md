@@ -45,7 +45,7 @@ interface are also presented in list interface and some additional extra method.
 
 |                method                 | Description                                                                                                                                                                                                               |
 |:-------------------------------------:|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|         `add(int index, E e)`         | It will add an element at the index position of the collection. `                                                                                                                                                         |
+|         `add(int index, E e)`         | It will add an element at the index position of the collection.                                                                                                                                                           |
 | `addAll(int index, Collecttion<E> e)` | It will add a collection of elements at the index position of the collection.                                                                                                                                             |
 |          `remove(int index)`          | used to remove an element from the specified index from a List container and returns the element after removing it                                                                                                        |
 |           `get(int index)`            | used to get and element from the specified index. It does not delete or modify the object.                                                                                                                                |
@@ -79,4 +79,180 @@ are inserted in one end, and deleted in another end.
 | `remove() throws NoSuchElementException` | Same mechanism as poll() except it will throw exception if the queue is empty.                                                                                         |
 |                 `peek()`                 | Return the first element of the queue. It will not remove or modify the element. If the queue is empty, it will return null.                                           |
 |            `element() throws`            | Same as peek except it will throw exception if the queue is empty.                                                                                                     |
+
+
+## ArrayList in java
+Let us see a demonstration of ArrayList in java. We need to create an object of `ArrayList` first.
+
+```java
+import java.util.ArrayList;
+public class ListDemo {
+    public static void main(String[] args) {
+        ArrayList<Integer> al1  = new ArrayList<>();
+    }
+}
+```
+As the ArrayList is a generic class, we can define what type of data the list should contain.
+I've defined Integer in my list. If we want to store primitive type of data, we should use wrapper 
+class for this.
+
+If we want to initialize the size of an arraylist, we can pass the size in the constructor as well.
+
+```java
+import java.util.ArrayList;
+public class ListDemo {
+    public static void main(String[] args) {
+        ArrayList<Integer> al1  = new ArrayList<>(50);
+    }
+
+}
+```
+
+> let us store some data in this arraylist.
+
+```java
+import java.util.ArrayList;
+public class ListDemo {
+    public static void main(String[] args) {
+        ArrayList<Integer> al1  = new ArrayList<>(50);
+        al1.add(10);
+        al1.add(45);
+        al1.add(55);
+        al1.add(65);
+        System.out.println(al1);
+    }
+}
+```
+The output of this above could is :<br>
+`[10, 45, 55, 65]`
+
+we can also define the index number before adding any element.
+```java
+import java.util.ArrayList;
+public class ListDemo {
+    public static void main(String[] args) {
+        ArrayList<Integer> al1  = new ArrayList<>(50);
+        al1.add(10);
+        al1.add(45);
+        al1.add(55);
+        al1.add(65);
+        al1.add(0,59);
+        System.out.println(al1);
+    }
+}
+```
+The output of this above could is :<br>
+`[59, 10, 45, 55, 65]`
+
+We can see that 59 is inserted at 0th index of the al1 arraylist.
+
+We also have `addAll` method that will add all the element of another arraylist. Let's create
+an additional arraylist.
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class ListDemo {
+    public static void main(String[] args) {
+        ArrayList<Integer> al1  = new ArrayList<>(50);
+
+        ArrayList<Integer> al2 = new ArrayList<>(
+                List.of(88,99,66,55,44)
+        );
+        al1.add(10);
+        al1.add(45);
+        al1.add(55);
+        al1.add(65);
+        al1.add(0,59);
+        al1.addAll(al2);
+        System.out.println(al1);
+    }
+}
+```
+We've created an arraylist named `al2`.Then we added this arraylist in our previous arraylist
+al1 using `allAll` method.
+
+The output will be look like this :
+
+`[59, 10, 45, 55, 65, 88, 99, 66, 55, 44]`
+
+If we wanted to add this arraylist at any index number, we could use this method :
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class ListDemo {
+    public static void main(String[] args) {
+        ArrayList<Integer> al1  = new ArrayList<>(50);
+
+        ArrayList<Integer> al2 = new ArrayList<>(
+                List.of(88,99,66,55,44)
+        );
+        al1.add(10);
+        al1.add(45);
+        al1.add(55);
+        al1.add(65);
+        al1.add(0,59);
+        al1.addAll(5,al2);
+        System.out.println(al1);
+    }
+}
+```
+Now the output will look like this :
+
+`[59, 10, 88, 99, 66, 55, 44, 45, 55, 65]`
+
+We can also check if any element is present in this list or not.
+```java
+al1.contains(989)
+```
+this will return false as 989 is not present in the list.
+
+### Using iterator to iterate through the list
+If we want to iterate through a list, we can use iterator to do the job.
+```java
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class ListDemo {
+    public static void main(String[] args) {
+        ArrayList<Integer> al1  = new ArrayList<>(50);
+        al1.add(10);
+        al1.add(45);
+        al1.add(55);
+        al1.add(65);
+        al1.add(0,59);
+
+        Iterator<Integer> it = al1.iterator();
+        while(it.hasNext()){
+            Integer number = it.next();
+            System.out.println(number);
+        }
+    }
+}
+```
+The iterator is only unidirectional. If we want a bidirectional iterator, we should use `ListIteraot`
+instead.
+
+```java
+public class ListDemo {
+    public static void main(String[] args) {
+        ArrayList<Integer> al1  = new ArrayList<>(50);
+        al1.add(10);
+        al1.add(45);
+        al1.add(55);
+        al1.add(65);
+        al1.add(0,59);
+        
+        ListIterator<Integer> it2 = al1.listIterator(al1.size());
+        System.out.println(it2.previous());
+        while(it2.hasPrevious()){
+            Integer number = it2.previous();
+            System.out.println(number);
+        }
+    }
+}
+```
+listIterator will set the pointer to the first element if we do not pass any argument. However,
+if we pass any index, it will set the pointer to that index.
 
