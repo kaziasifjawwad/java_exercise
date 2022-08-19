@@ -1,8 +1,24 @@
 ### Java Collection framework
 
+
+
+# Table of contnet
+
+[Important interface of collection framework](#collectionframework) <br>
+[List interface](#listinterface)
+
+
+
+
+
+
+
+
+
 ![img.png](rsource/java_collection_map.png)
 
-#### Important interface of collection framework .
+#### <a name = "collectionframework"></a>Important interface of collection framework .
+
 Classes and interfaces of java collection framework are present
 in ```java.util``` package.<br>
 Let us know about collection interface.<br>
@@ -33,7 +49,7 @@ object or class.`
 
 
 
-### List interface
+### <a name = "listinterface"></a> List interface
 
 ```java
 interface List extends Collection
