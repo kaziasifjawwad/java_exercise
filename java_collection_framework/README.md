@@ -24,3 +24,41 @@ object or class.`
 |            `size()`            | Returns the size of the collection.                                                                                                               |
 |          `iterator()`          | It returns an interface of iterator.                                                                                                              |
 |          `toArray()`           | It will return an array contains all the element of the collection.                                                                               |
+
+
+
+
+
+
+
+
+
+### List interface
+
+```java
+interface List extends Collection;
+```
+List represents ordered collection of elements, means there should be index. It also supports duplicate 
+element.
+`List interface extends from collection interface.`  So, whatever methods are presented in collection 
+interface are also presented in list interface and some additional extra method. 
+
+|                method                 | Description                                                                                                                                                                                                               |
+|:-------------------------------------:|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|         `add(int index, E e)`         | It will add an element at the index position of the collection. `                                                                                                                                                         |
+| `addAll(int index, Collecttion<E> e)` | It will add a collection of elements at the index position of the collection.                                                                                                                                             |
+|          `remove(int index)`          | used to remove an element from the specified index from a List container and returns the element after removing it                                                                                                        |
+|           `get(int index)`            | used to get and element from the specified index. It does not delete or modify the object.                                                                                                                                |
+|         `set(int index, E e)`         | It will replace the element at the specified index with new element `e`.                                                                                                                                                  |
+|      `sublist(int from, int to)`      | It will return a list of objects that are situated in between `from` and `to`.                                                                                                                                            |
+|          `indexOf(Object o)`          | It will return the index of the object `o` from the list. If the object is not present in the list, it will return `-1`. This will start searching from left to right side.                                               |
+|        `lastIndexOf(Object o)`        | Let's say I have duplicate element in my list. In this case there should be multiple index of the same element.This method will return the last index of this element. This will start searching from right to left side. |
+|           `listIterator()`            | `iterator()` from the collection interface allows us to access the element from left to right side. On the other hand, `listIterator()` allows us to access the element in both direction.                                |
+|       `listIterator(int index)`       | It allows us to access the element from any any index.                                                                                                                                                                    |
+|                  `-`                  | -                                                                                                                                                                                                                         |
+|                  `-`                  | -                                                                                                                                                                                                                         |
+|                  `-`                  | -                                                                                                                                                                                                                         |
+|                  `-`                  | -                                                                                                                                                                                                                         |
+|                  `-`                  | -                                                                                                                                                                                                                         |
+|                  `-`                  | -                                                                                                                                                                                                                         |
+|                  `-`                  | -                                                                                                                                                                                                                         |
