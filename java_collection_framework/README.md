@@ -6,7 +6,7 @@
 [Set interface](#Setinterface)<br>
 [ArrayList in java](#arraylistinjava)<br>
 [LinkedList in java](#linkedlistinjava)<br>
-
+[ArrayDeque](#arraydeque)<br>
 
  
 
@@ -324,5 +324,68 @@ output :<br>
 `getFirst()` works same as like `peekFirst()` but the main difference is that, `peekfirst()` will
 return `null` rather throwing `NoSuchElement` exception. This helps developer to reduce Exception
 Handling while development.
+
+## <div name="arraydeque">ArrayDeque</div>
+A deque means double ended queue. Elements can be inserted or deleted from both front and rare side.
+
+### Features
+- Uses Array data structure.
+- Deque can be used as both `stack` and `queue`.
+- It takes constant time for adding or removing element. __faster than stack__ .
+- Do not support thread. `not thread-safe` `#1589F0`
+
+Let us see some implementation of `ArrayDeque`
+```java
+import java.util.ArrayDeque;
+
+public class DequeDemo {
+    public static void main(String[] args) {
+        ArrayDeque<Integer> dq = new ArrayDeque<>();
+
+        dq.addLast(10);
+        dq.addLast(20);
+        dq.addLast(30);
+        dq.addLast(40);
+
+        System.out.println(dq);
+    }
+}
+```
+
+| Element |     |     |     |     | 10  | 20  | 30  | 40  |     |     |
+|---------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
+| Index   | 0   | 1   | 2   | 3   | 4   | 5   | 6   | 7   | 8   | 9   |
+```
+                                  ------> left to right
+```
+
+The starting index should always be form 0.  But for the simplicity, let us assume that elements starts to add at
+index 0. Now, the addLast() will add every element after the last available position of this queue. So,
+the output of the above code will be :<br>
+`[10, 20, 30, 40]`
+
+Let us now add some more element using `addFirst()` method.
+```java
+import java.util.ArrayDeque;
+
+public class DequeDemo {
+    public static void main(String[] args) {
+        ArrayDeque<Integer> dq = new ArrayDeque<>();
+
+        dq.addLast(10);
+        dq.addLast(20);
+        dq.addLast(30);
+        dq.addLast(40);
+
+        dq.addFirst(1);
+        dq.addFirst(2);
+        dq.addFirst(3);
+        dq.addFirst(4);
+
+        System.out.println(dq);
+    }
+}
+```
+This will add all the elements [1,2,3,4] before 
 
 
