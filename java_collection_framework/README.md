@@ -1,15 +1,25 @@
-### Java Collection framework
+<style>
+
+#headline {
+  text-align: center;
+  border: 5px solid gray;
+}
+
+</style>
 
 
 
-# Table of contnet
-
-[Important interface of collection framework](#collectionframework) <br>
-[List interface](#listinterface)
 
 
 
-
+# <div id="headline">Java Collection framework</div>
+## Table of contnet
+[Important interface of collection framework](#collectionframework)<br>
+[List interface](#listinterface)<br>
+[Queue interface](#queueinterface)<br>
+[Set interface](#Setinterface)<br>
+[ArrayList in java](#arraylistinjava)<br>
+[LinkedList in java](#linkedlistinjava)<br>
 
 
 
@@ -73,7 +83,7 @@ interface are also presented in list interface and some additional extra method.
 |       `listIterator(int index)`       | It allows us to access the element from any any index.                                                                                                                                                                    |
 
 
-## Set interface
+## <div name = "Setinterface">Set interface</div>
 The set interface does not have any additional method. It only extends the Collection interface.
 ```java
 interface Set extends Collection
@@ -84,7 +94,7 @@ interface Set extends Collection
 |  Unique collection of object   |
 
 
-## Queue interface
+## <div name = "queueinterface">Queue interface</div>
 This interface supports `FIFO` mechanism. First in first out mechanism. So, elements and objects
 are inserted in one end, and deleted in another end. 
 
@@ -97,7 +107,7 @@ are inserted in one end, and deleted in another end.
 |            `element() throws`            | Same as peek except it will throw exception if the queue is empty.                                                                                                     |
 
 
-## ArrayList in java
+## <div name="arraylistinjava">ArrayList in java</div>
 Let us see a demonstration of ArrayList in java. We need to create an object of `ArrayList` first.
 
 ```java
@@ -272,7 +282,7 @@ public class ListDemo {
 listIterator will set the pointer to the first element if we do not pass any argument. However,
 if we pass any index, it will set the pointer to that index.
 
-## LinkedList
+## <div name = "linkedlistinjava">LinkedList in java</div>
 
 LinkedList have the same method as ArrayList. In this section, we will see extra two method that  linkedlist provide.
 
