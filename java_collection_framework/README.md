@@ -256,3 +256,60 @@ public class ListDemo {
 listIterator will set the pointer to the first element if we do not pass any argument. However,
 if we pass any index, it will set the pointer to that index.
 
+## LinkedList
+
+LinkedList have the same method as ArrayList. In this section, we will see extra two method that  linkedlist provide.
+
+```java
+import java.util.LinkedList;
+public class ListDemo {
+    public static void main(String[] args) {
+        LinkedList<Integer> al1  = new LinkedList<>();
+        al1.add(10);
+        al1.add(45);
+        al1.add(55);
+        al1.add(65);
+        al1.add(0,59);
+
+        System.out.println("Before adding 78 and 656 : " + al1);
+
+        al1.addFirst(78);
+        al1.addLast(656);
+
+        System.out.println("After adding 78 and 656 : " + al1);
+    }
+}
+```
+>addFirst() method will add the element at the fist position of the linkedlis,
+> on the other hand, addLast() will add the element at the last position of the linkedlist.
+> The output will be look like this :
+
+`Before adding 78 and 656 : [59, 10, 45, 55, 65]` <br>
+` After adding 78 and 656 : [78, 59, 10, 45, 55, 65, 656]`
+
+We can also get the first and the last element of the linked-list as well. 
+```java
+public class ListDemo {
+    public static void main(String[] args) {
+        LinkedList<Integer> al1  = new LinkedList<>(
+                List.of(10,45,55,65 )
+        );
+
+        al1.add(0,59);
+        Integer firstElement = al1.getFirst();
+        Integer lastElement = al1.getLast();
+        System.out.println("first element : "+
+                firstElement+
+                "\nLast element : "+lastElement);
+    }
+}
+```
+output :<br>
+`first element : 59` <br>
+`Last element : 65`
+
+`getFirst()` works same as like `peekFirst()` but the main difference is that, `peekfirst()` will
+return `null` rather throwing `NoSuchElement` exception. This helps developer to reduce Exception
+Handling while development.
+
+
