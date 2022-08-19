@@ -1,18 +1,4 @@
-<style>
-
-#headline {
-  text-align: center;
-  border: 5px solid gray;
-}
-
-</style>
-
-
-
-
-
-
-# <div id="headline">Java Collection framework</div>
+# <div id="headline" style="text-align: center; border: 5px solid gray;">Java Collection framework</div>
 ## Table of contnet
 [Important interface of collection framework](#collectionframework)<br>
 [List interface](#listinterface)<br>
@@ -22,7 +8,7 @@
 [LinkedList in java](#linkedlistinjava)<br>
 
 
-
+ 
 
 
 ![img.png](rsource/java_collection_map.png)
