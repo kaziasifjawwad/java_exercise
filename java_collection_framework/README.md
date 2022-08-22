@@ -8,7 +8,7 @@
 [LinkedList in java](#linkedlistinjava)<br>
 [ArrayDeque](#arraydeque)<br>
 [PriorityQueue](#PriorityQueue)<br>
- 
+ [Hash](#hash)<br>
 
 
 ![img.png](rsource/java_collection_map.png)
@@ -540,7 +540,7 @@ public class PriorityDemo {
 ```
 
 
-# Hash
+## <div name = "hash">Hash</div>
 Before move on to next few classes, let us talk about hashing technique. Java uses hashing
 technique in my classes. Some of them are :
 - HashSet
