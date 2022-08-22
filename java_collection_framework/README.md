@@ -330,9 +330,9 @@ A deque means double ended queue. Elements can be inserted or deleted from both 
 
 ### Features
 - Uses Array data structure.
-- Deque can be used as both `stack` and `queue`.
+- Deque can be used as both `stack` and `queue` implementation.
 - It takes constant time for adding or removing element. __faster than stack__ .
-- Do not support thread. `not thread-safe` `#1589F0`
+- Do not support thread. `not thread-safe`
 
 Let us see some implementation of `ArrayDeque`
 ```java
@@ -360,7 +360,7 @@ public class DequeDemo {
 ```
 
 The starting index should always be form 0.  But for the simplicity, let us assume that elements starts to add at
-index 0. Now, the addLast() will add every element after the last available position of this queue. So,
+index 4. Now, the addLast() will add every element after the last available position of this queue. So,
 the output of the above code will be :<br>
 `[10, 20, 30, 40]`
 
@@ -386,6 +386,50 @@ public class DequeDemo {
     }
 }
 ```
-This will add all the elements [1,2,3,4] before 
+This will add all the elements [1,2,3,4] before `10` .
+So, the final queue will look like this.
+
+| Element | 4   | 3   | 2   | 1   | 10  | 20  | 30  | 40  |     |     |
+|---------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
+| Index   | 0   | 1   | 2   | 3   | 4   | 5   | 6   | 7   | 8   | 9   |
+```
+            <------------ right to left insertion
+```
+### Stack implementation using ArrayDeque
+Array deque can be used to implement stack. Stack data structure always follow
+`LIFO` ( last in first out ) strategy. So, to implement this data structure,
+we have to consider two things :
+- When we will insert new value, we wil insert it at the last available position.In this case , new value will be inserted at index 8
+- When we will delete, we always delete the most recent inserted value. In this case , value of index 7 will be deleted.
 
 
+If we want to delete from the last index __in this case, index number `7`__ , we 
+will use pollLast() medhod. This will mimic `STACK` functionality.
+
+If we want to add new value to this queue, we will use offerLast() method.
+
+Now, we will see an implementation of stack using ArrayDeque
+
+```java
+import java.util.ArrayDeque;
+
+public class DequeDemo {
+    public static void main(String[] args) {
+        ArrayDeque<Integer> dq = new ArrayDeque<>();
+
+        //pushing new value to dq
+        dq.addLast(10);
+        dq.addLast(20);
+        dq.addLast(30);
+        dq.addLast(40);
+
+        // pop from dq
+        dq.pollLast();
+
+        dq.forEach((x)-> System.out.println(x));
+    }
+}
+```
+
+`If we wanted to implement queue, we would use pollFirst() insted of pollLast() . pollFirst()
+removes items that were inserted first.`
