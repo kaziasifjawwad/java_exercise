@@ -646,4 +646,50 @@ number 5.
 > - Is 45 present at index 7 ? No. But index 7 is empty ! If 45 presented in this hash function it should occupy next available empty space. But this space is still blank. So, 45 is not present.
 > <br>
 
+`Thre must be some blank space. At least 25% of blank space should be there in hashtable.
+It would be best if 50% blank space is available in any hashmap. This is called loading factor.`
 
+
+## <div name = "hashset">HashSet</div>
+- Set means there should be unique value in this data structure.
+- Hash means it uses hash table
+- Implements `collection<E>` and `Set<E>` interfaces.
+- Offers constant time for basic operation (`add`, `remove` , `contains` and `size`)
+- Implementation is not synchronized.
+
+```java
+import java.util.HashSet;
+
+public class SetDemo {
+    public static void main(String[] args) {
+        HashSet<Integer> set_sample_1 = new HashSet<>();
+
+        //we can define initial capacity as well
+        HashSet<Integer> set_sample_2 = new HashSet<>(45);
+
+        // we can define loading factor as well.
+        HashSet<Integer> set_sample_3 = new HashSet<>(60,0.55F);
+
+        set_sample_3.add(11);
+        set_sample_3.add(20);
+        set_sample_3.add(30);
+        set_sample_3.add(40);
+        set_sample_3.add(50);
+        set_sample_3.add(60);
+
+        System.out.println(set_sample_3);
+     }
+}
+```
+Three type of constructor were created in the above code.
+>`set_sample_1`<br>
+> This constructor does not take any argument. The loading factor is by default 75% and 
+> the initial capacity is by default 16.
+
+>`set_sample_2`<br>
+> This constructor takes one argument. It will take the initial capacity of the hashset.
+
+>`set_sample_3`<br>
+> This constructor take two argument. The first one is initial capacity. The second one is loading factor.
+
+_The `load factor` is the measure that decides when to increase the capacity of the Map._
