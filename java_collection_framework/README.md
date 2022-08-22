@@ -7,7 +7,7 @@
 [ArrayList in java](#arraylistinjava)<br>
 [LinkedList in java](#linkedlistinjava)<br>
 [ArrayDeque](#arraydeque)<br>
-
+[PriorityQueue](#PriorityQueue)<br>
  
 
 
@@ -433,3 +433,217 @@ public class DequeDemo {
 
 `If we wanted to implement queue, we would use pollFirst() insted of pollLast() . pollFirst()
 removes items that were inserted first.`
+
+
+## <div name = "PriorityQueue">PriorityQueue</div>
+- This class represents a data structure called `Heap` . 
+- Implemented using `array`
+
+- A priority queue means elements are inserted or deleted based on priority. Now, how the priority is
+defined ? Well, its depends on the value of an element. If the element is small, the priority is high. If the element is large, the priority is low.
+- We cannot decide which element should be deleted in this data structure. The highest priority element will be deleted.
+
+- _The heap is implemented using binary tree data structure_ <br>
+- _To implement heap, we should implement a method to compare the elements. Otherwise, it may cast
+a runtime exception._
+```java
+
+import java.util.PriorityQueue;
+
+public class PriorityDemo {
+    public static void main(String[] args) {
+        PriorityQueue<Integer> p = new PriorityQueue<>();
+
+        //we can use offer() method instead of add method.
+        p.add(20);
+        p.add(10);
+        p.add(30);
+        p.add(5);
+        p.add(15);
+        p.add(3);
+
+        System.out.println(p);
+
+        System.out.println(
+                p.peek() //helps to find the head element.
+        );
+
+
+        p.poll(); //remove the head element.
+
+        System.out.println(
+                p.element() //gives the head element.
+        );
+
+        System.out.println(p);
+
+    }
+}
+
+```
+
+Priority queue by default implements min heap. If we want to implement a max heap, we must defince
+the priority manually. 
+For defining priority, we must implement `Comparator` interface. Let us see an example of max heap.
+
+```java
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
+
+class MyCom implements Comparator<Integer> {
+    @Override
+    public int compare(Integer o1, Integer o2) {
+        if (o1 < o2) {
+            return 1;
+        } else if (o1 > o2) {
+            return -1;
+        } else {
+            return 0;
+        }
+    }
+}
+
+
+public class PriorityDemo {
+    public static void main(String[] args) {
+        PriorityQueue<Integer> p = new PriorityQueue<>(
+                new MyCom()
+        );
+
+        //we can use offer() method instead of add method.
+        p.add(20);
+        p.add(10);
+        p.add(30);
+        p.add(5);
+        p.add(15);
+        p.add(3);
+
+        System.out.println(p);
+
+        System.out.println(
+                p.peek() //helps to find the head element.
+        );
+
+
+        p.poll(); //remove the head element.
+
+        System.out.println(
+                p.element() //gives the head element.
+        );
+
+        System.out.println(p);
+
+    }
+
+}
+```
+
+
+# Hash
+Before move on to next few classes, let us talk about hashing technique. Java uses hashing
+technique in my classes. Some of them are :
+- HashSet
+- HashMap
+- LinkedHashSet
+- LinkedHashMap
+- HashTable
+- Properties
+
+We will discuss how java uses hashing technique.
+
+| Index | Value |
+|-------|-------|
+| 0     |       |
+| 1     |       |
+| 2     |       |
+| 3     |       |
+| 4     |       |
+| 5     |       |
+| 6     |       |
+| 7     |       |
+| 8     |       |
+| 9     |       |
+
+
+ <br>
+- Each of the location ( identifying by index number 0....9) are called as buckets. 
+- Each bucket can hold just value, or key and value.
+- A hash table have some size. **Most of the time the initial size is 16** in may java classes.
+- It will adjust the size if the limit is crossed by 16.
+
+Assume we have some values that need to be stored in hash table.
+
+| Syntax |
+|--------|
+| 15     | 
+| 28     |
+| 42     |
+| 35     |
+| 17     |
+| 52     |
+
+For adding the values to the hashtable, we have to define the index of each value.
+We will calculate the index using a hash function.
+For example,
+
+`h(x) = x%10`
+
+Let's say we want to insert 42 in this hash table. We will then calculate the index number using
+hash funtion.
+The index number is ,
+x%10 = 42%10 = 2
+So, the value will be stored in second index of the hash table.
+
+| Index | Value |
+|-------|-------|
+| 0     |       |
+| 1     |       |
+| 2     | 42    |
+| 3     |       |
+| 4     |       |
+| 5     | 15    |
+| 6     |       |
+| 7     |       |
+| 8     | 28    |
+| 9     |       |
+
+>There might be some case when two value have the same index number. For example, 15 and 35
+have the same index number 5 . In this case , if index number 5 is empty, we will simply insert
+in this empty space. However, if the calculated index is not empty, we need to insert the element in
+nearest available space. In this case , if we insert 15 at index 5 and then try to insert 35,
+we have to insert at index number 6 since it is the nearest available space.
+
+
+| Index | Value |
+|-------|-------|
+| 0     |       |
+| 1     |       |
+| 2     | 42    |
+| 3     |       |
+| 4     |       |
+| 5     | 15    |
+| 6     | `35`  |
+| 7     |       |
+| 8     | 28    |
+| 9     |       |
+
+> Now, when I search 35, I will calculate the index number first. In this case the index number
+is 5. If the element is not found at index 05, we need to execute a linear search stars from index
+number 5. 
+
+> **What if we search an element that does not exist in the hashmap ? How we will then understand
+> that the element does not exists in the hashmap  ? Should we search the whole hashmap ?**<br>
+> No.
+> 
+> Let's say we are searching 45 in this above hashmap. 45 is not present in this table. So, the 
+> searching will be executed like this :
+> - calculate the index number of 45 using hash function `f(x) = x & 10` = 5
+> - Check if 45 is present in index number 6.
+> - 45 is not present in index 6.
+> - Start a linear search. 
+> - Is 45 present at index 6 ? No. Continue linear search.
+> - Is 45 present at index 7 ? No. But index 7 is empty ! If 45 presented in this hash function it should occupy next available empty space. But this space is still blank. So, 45 is not present.
+> <br>
+
+
