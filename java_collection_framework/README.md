@@ -1,5 +1,5 @@
 # <div id="headline" style="text-align: center; border: 5px solid gray;">Java Collection framework</div>
-## Table of contnet
+## Table of content
 [Important interface of collection framework](#collectionframework)<br>
 [List interface](#listinterface)<br>
 [Queue interface](#queueinterface)<br>
@@ -9,7 +9,8 @@
 [ArrayDeque](#arraydeque)<br>
 [PriorityQueue](#PriorityQueue)<br>
  [Hash](#hash)<br>
-
+[HashSet](#hashset)<br>
+[TreeSet](#treeset)<br>
 
 ![img.png](rsource/java_collection_map.png)
 
@@ -271,7 +272,7 @@ if we pass any index, it will set the pointer to that index position.
 ## <div name = "linkedlistinjava">LinkedList in java</div>
 
 LinkedList have the same method as ArrayList. In this section, we will see extra two method that  
-linkedlist provide.
+linked-list provide.
 
 ```java
 import java.util.LinkedList;
@@ -293,7 +294,7 @@ public class ListDemo {
     }
 }
 ```
->`addFirst()` method will add the element at the fist position of the linkedlis.
+>`addFirst()` method will add the element at the fist position of the linked-list.
 > on the other hand, `addLast()` will add the element at the last position of the linked-list.
 > The output will be look like this :
 
@@ -404,7 +405,7 @@ we have to consider two things :
 
 
 If we want to delete from the last index __in this case, index number `7`__ , we 
-will use pollLast() medhod. This will mimic `STACK` functionality.
+will use pollLast() method. This will mimic `STACK` functionality.
 
 If we want to add new value to this queue, we will use offerLast() method.
 
@@ -482,7 +483,7 @@ public class PriorityDemo {
 
 ```
 
-Priority queue by default implements min heap. If we want to implement a max heap, we must defince
+Priority queue by default implements min heap. If we want to implement a max heap, we must define
 the priority manually. 
 For defining priority, we must implement `Comparator` interface. Let us see an example of max heap.
 
@@ -569,7 +570,7 @@ We will discuss how java uses hashing technique.
  <br>
 - Each of the location ( identifying by index number 0....9) are called as buckets. 
 - Each bucket can hold just value, or key and value.
-- A hash table have some size. **Most of the time the initial size is 16** in may java classes.
+- A hash table have some size. **Most of the time the initial size is 16** in java classes.
 - It will adjust the size if the limit is crossed by 16.
 
 Assume we have some values that need to be stored in hash table.
@@ -590,7 +591,7 @@ For example,
 `h(x) = x%10`
 
 Let's say we want to insert 42 in this hash table. We will then calculate the index number using
-hash funtion.
+hash function.
 The index number is ,
 x%10 = 42%10 = 2
 So, the value will be stored in second index of the hash table.
@@ -611,7 +612,7 @@ So, the value will be stored in second index of the hash table.
 >There might be some case when two value have the same index number. For example, 15 and 35
 have the same index number 5 . In this case , if index number 5 is empty, we will simply insert
 in this empty space. However, if the calculated index is not empty, we need to insert the element in
-nearest available space. In this case , if we insert 15 at index 5 and then try to insert 35,
+the nearest available space. In this case , if we insert 15 at index 5 and then try to insert 35,
 we have to insert at index number 6 since it is the nearest available space.
 
 
@@ -633,7 +634,7 @@ is 5. If the element is not found at index 05, we need to execute a linear searc
 number 5. 
 
 > **What if we search an element that does not exist in the hashmap ? How we will then understand
-> that the element does not exists in the hashmap  ? Should we search the whole hashmap ?**<br>
+> that the element does not exist in the hashmap  ? Should we search the whole hashmap ?**<br>
 > No.
 > 
 > Let's say we are searching 45 in this above hashmap. 45 is not present in this table. So, the 
@@ -693,3 +694,82 @@ Three type of constructor were created in the above code.
 > This constructor take two argument. The first one is initial capacity. The second one is loading factor.
 
 _The `load factor` is the measure that decides when to increase the capacity of the Map._
+
+
+## <div name = "treeset">TreeSet</div>
+
+- Only unique elements are allowed, no duplicate elements.
+- Tree is used
+- Guaranteed log(n) time cost for the basic operation `add` , `remove` , `contains` .
+- Implementation is not synchronized
+
+### `Sample code of TreeSet`
+
+```java
+import java.util.List;
+import java.util.TreeSet;
+
+public class TreeSetDemo {
+    public static void main(String[] args) {
+
+        //Default constructor
+        TreeSet<Integer> ts = new TreeSet<>();
+
+        //Constructor with argument of list
+        TreeSet ts_with_list  = new TreeSet(
+                List.of(90,80,70,60,50,40,30,20,10)
+        );
+        
+        //Returns the least element in this set greater than or equal to the given element, or null if there is no such element.
+        System.out.println(ts_with_list.ceiling(45));
+
+     }
+}
+```
+
+## Comparable Interface
+All the examples so far were given by storing `integer` type data. In real life, we need to store
+non-primitive data. In non-primitive data, we should define a comparator to compare between two 
+object. We can implement comparator based on our business logic.
+To compare in between non-primitive data, the comparable interface was used in java.
+
+Let us assume that we have a Point class. We need to store some object of this class in a TreeSet
+data structure. We all know that treeSet always keep unique value in `sorted` way. 
+
+In our previous example, we used primitive data type where comparison between two data were done by
+java. We did not have to bother about that. But in our own defined data type such as `Point`, we need
+to define our own comparator. Otherwise, java will not be able to know which property of an object
+should be compared. For better understanding, let us define the `Point` class first.
+
+```java
+class Point{
+    private int x, y;
+
+    public Point(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public String toString() {
+        return "(" + this.getX() + " ," + this.getY() + ")";
+    }
+
+}
+```
+Now assume we want to store object of this class in a TreeSet.
