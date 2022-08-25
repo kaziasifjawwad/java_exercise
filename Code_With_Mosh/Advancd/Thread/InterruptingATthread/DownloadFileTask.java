@@ -1,6 +1,17 @@
 package Code_With_Mosh.Advancd.Thread.InterruptingATthread;
 
 public class DownloadFileTask implements Runnable {
+
+
+
+    private int  sleepTime;
+
+    public DownloadFileTask(int sleepTime) {
+        this.sleepTime = sleepTime;
+
+    }
+
+
     @Override
     public void run() {
 
@@ -12,10 +23,10 @@ public class DownloadFileTask implements Runnable {
 
         for (var i = 0; i < Integer.MAX_VALUE; i++) {
             if (Thread.currentThread().isInterrupted()) return;
-            System.out.println(i);
+            System.out.println(Thread.currentThread().getName());
 
             try {
-                Thread.sleep(1000);
+                Thread.sleep(this.sleepTime);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
@@ -28,4 +39,7 @@ public class DownloadFileTask implements Runnable {
                         " ------------ " + System.currentTimeMillis()
         );
     }
+
+
+
 }
