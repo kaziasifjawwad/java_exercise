@@ -2,7 +2,7 @@
 run the `Test.java` file and trace the output .
 
 
-> Do not compile or run the code. Trace yourself and try to identify if the code will throw a runtime error
+> Do not compile or run the code. Trace yourself and try to identify whether the code will throw a runtime error
 > or a compiled time error.
 
 > If none of the error occur, trace  the output.
