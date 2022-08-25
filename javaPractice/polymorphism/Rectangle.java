@@ -1,4 +1,4 @@
-package javaPractice.polimorphism;
+package javaPractice.polymorphism;
 
 public class Rectangle extends Parallelogram
 {

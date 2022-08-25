@@ -1,4 +1,4 @@
-package javaPractice.polimorphism;
+package javaPractice.polymorphism;
 
 public class Test{
   public static void main(String args[]){
@@ -67,6 +67,7 @@ Rectangle shape8 = new Square();
 //((Quadrilateral) shape5).method3();
 //((Quadrilateral) shape6).method3();
 //((Quadrilateral) shape7).method3();
+    ((Quadrilateral) shape7).method2();
 //((Object) shape1).method1();
 //((Object) shape2).method1();
 //((Object) shape3).method1();
